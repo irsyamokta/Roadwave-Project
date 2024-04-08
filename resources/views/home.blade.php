@@ -1,0 +1,23 @@
+@extends('master')
+@section('content')
+    @auth
+        @can('admin')
+            @include('admin.dashboard.dashboard')
+        @else
+            @include('layouts.navigasi.navbar')
+            @include('layouts.product.hero')
+            @include('layouts.product.best')
+            @include('layouts.product.ourproduct')
+            @include('layouts.footer.footer')
+        @endcan
+        @include('script')
+    @endauth
+    @guest
+        @include('layouts.navigasi.navbarguest')
+        @include('layouts.product.hero')
+        @include('layouts.product.best')
+        @include('layouts.product.ourproduct')
+        @include('layouts.footer.footerguest')
+        @include('script')
+    @endguest
+@endsection
